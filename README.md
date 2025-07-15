@@ -8,7 +8,6 @@
 
 - UART Transmitter and Receiver (8N1 Frame Format)
 - Riccati-based adaptive sampling and majority voting
-- 50% BER reduction under simulated bit-flip noise
 - Parameterized baud rate and clock frequency
 - Synthesizable and simulation-ready Verilog code
 - Modular testbench with waveform support
