@@ -1,6 +1,6 @@
-# 🔇 NoiselessUART
+# 🔇 UART Protocol
 
-**NoiselessUART** is a noise-resilient UART protocol implemented in Verilog, enhanced by a Riccati-equation-inspired sampling mechanism to reduce Bit Error Rate (BER). This design integrates traditional UART transceiver logic with intelligent sampling and majority-voting, aiming for robust performance in noisy environments.
+**UART** is a noise-resilient UART protocol implemented in Verilog, enhanced by a Riccati-equation-inspired sampling mechanism to reduce Bit Error Rate (BER). This design integrates traditional UART transceiver logic with intelligent sampling and majority-voting, aiming for robust performance in noisy environments.
 
 ---
 
