@@ -76,6 +76,6 @@ The project implements a UART communication system with the following components
 | `test_data_in` | Input data for simulation. | Increments from 0–255, triggering transmissions. |
 
 
-  ![Device Connection](IMAGES/FIG05.PNG)
+  ![Device Connection](IMAGES/FIG05.png)
 
   
