@@ -1,43 +1,69 @@
-# 🔇 UART Protocol
+# UART (Universal Asynchronous Receiver and Transmitter)
 
-**UART** is a noise-resilient UART protocol implemented in Verilog, enhanced by a Riccati-equation-inspired sampling mechanism to reduce Bit Error Rate (BER). This design integrates traditional UART transceiver logic with intelligent sampling and majority-voting, aiming for robust performance in noisy environments.
-
----
-
-## 📌 Key Features
-
-- UART Transmitter and Receiver (8N1 Frame Format)
-- Riccati-based adaptive sampling and majority voting
-- Parameterized baud rate and clock frequency
-- Synthesizable and simulation-ready Verilog code
-- Modular testbench with waveform support
+This repository implements a **UART communication system** in digital logic (Verilog/VHDL).  
+UART is a widely used protocol for **asynchronous serial communication** between devices such as microcontrollers, FPGAs, and computers.
 
 ---
 
-## 🧠 Project Motivation
-
-Traditional UART implementations are prone to **bit errors** under line noise and clock drift. Inspired by **Riccati equations** (used in control theory and estimation), we introduce a **sampling redundancy + majority voting** strategy to recover accurate bits even under random disturbances.
-
-> 🎯 *"Make UART robust without changing the protocol—only the way we sample."*
-
----
-
-## 🛠️ Files Overview
-
-| File           | Description                                 |
-|----------------|---------------------------------------------|
-| `UART.v`       | Top-level wrapper integrating TX and RX     |
-| `UART_TX.v`    | Serial transmitter with start/stop framing  |
-| `UART_RX.v`    | Receiver with Riccati-style sampling filter |
-| `UART_TB.v`    | Testbench to simulate noisy channel         |
-| `Makefile`     | Compile and run simulation using Icarus     |
+## ✨ Features
+- Asynchronous serial communication
+- Configurable **baud rate generator**
+- **Parity bit support** (Even/Odd selectable)
+- **Start, Data, Parity, Stop** bit framing
+- **Transmitter and Receiver FSMs**
+- **Error detection** using parity checker
+- Point-to-point communication support
 
 ---
 
-## ⚙️ Simulation
+## 📐 UART Frame Format
+A typical UART frame consists of:
 
-### Run with Icarus Verilog:
+- **Start bit** → 1 bit (`Low`)
+- **Data bits** → 8 bits (`D0 – D7`)
+- **Parity bit** → Optional (Even/Odd)
+- **Stop bit** → 1 bit (`High`)
 
-```bash
-make        # Compile and simulate
-gtkwave dump.vcd
+![UART Frame Format](FIG01.jpg)
+
+---
+
+## 🚀 UART Transmitter
+The **Transmitter** converts parallel input data into a serial bitstream.
+
+![UART Transmitter Block Diagram](FIG02.jpg)
+
+### Modules:
+- **Baud Rate Generator** → Generates transmission clock  
+- **Parity Generator** → Creates parity bit (Even/Odd)  
+- **Transmitter FSM** → Controls data framing and timing  
+- **PISO Register** → Converts parallel data to serial  
+
+---
+
+## 📥 UART Receiver
+The **Receiver** reconstructs parallel data from the incoming serial stream.
+
+![UART Receiver Block Diagram](FIG03.jpg)
+
+### Modules:
+- **Baud Rate Generator** → Synchronizes receiver sampling  
+- **Negative Edge Detector** → Detects start bit  
+- **Receiver FSM** → Manages reception and framing  
+- **SIPO Register** → Converts serial input to parallel data  
+- **Parity Checker** → Verifies correctness of received data  
+
+---
+
+## 🔗 Device-to-Device Communication
+Two UART-enabled devices communicate by cross-connecting **Tx** and **Rx** lines:
+
+- Device 1 **Tx → Rx** of Device 2  
+- Device 2 **Tx → Rx** of Device 1  
+- Common **Ground (GND)** connection  
+
+![Device-to-Device Connection](FIG04.jpg)
+
+---
+
+## 📂 Repository Structure
