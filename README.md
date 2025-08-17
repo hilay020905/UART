@@ -9,7 +9,7 @@ UART is a widely used protocol for **serial communication** between digital devi
 
 The project implements a UART communication system with the following components:
 
-- **UART Frame Format** (`IMAGES/FIG01.jpg`)  
+- **UART Frame Format** 
   The UART frame consists of:
   - Start bit (Low)
   - 8 Data bits (`D0`–`D7`)
@@ -22,21 +22,21 @@ The project implements a UART communication system with the following components
 
 ---
 
-- **Device Connection** (`IMAGES/FIG02.jpg`)  
+- **Device Connection**  
   Two devices (Device 01 and Device 02) are connected with **crossed TX/RX lines** (TX of one to RX of the other) and a **shared ground**, which is typical for UART communication.  
 
-  ![Device Connection](IMAGES/FIG02.jpg)
+  ![Device Connection](IMAGES/FIG04.jpg)
 
 ---
 
-- **Transmitter Architecture** (`IMAGES/FIG03.jpg`)  
+- **Transmitter Architecture**
   Includes:
   - **Baud Rate Generator** → produces the clock signal  
   - **Parity Generator** → generates parity bit (optional)  
   - **Finite State Machine (FSM)** → controls transmission sequence  
   - **Parallel-in Serial-out (PISO) Register** → shifts parallel data out serially  
 
-  ![Transmitter Architecture](IMAGES/FIG03.jpg)
+  ![Transmitter Architecture](IMAGES/FIG02.jpg)
 
 ---
 
@@ -48,7 +48,7 @@ The project implements a UART communication system with the following components
   - **Parity Checker** → validates received data  
   - **Serial-in Parallel-out (SIPO) Register** → converts serial input back to parallel data  
 
-  ![Receiver Architecture](IMAGES/FIG04.jpg)
+  ![Receiver Architecture](IMAGES/FIG03.jpg)
 
 ---
 
