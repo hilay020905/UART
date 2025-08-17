@@ -78,4 +78,14 @@ The project implements a UART communication system with the following components
 
   ![Device Connection](IMAGES/FIG05.png)
 
-  
+  ## How to Run
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/hilay020905/UART.git
+cd UART
+
+iverilog -o uart_sim UART_TOP.v BAUD_RATE_GENERATOR.v TRANSMITTER_FSM.v RECEIVER_FSM.v UART_TESTBENCH.v
+ vvp uart_sim
+gtkwave uart_waveform.vcd  
+
