@@ -24,14 +24,14 @@ A typical UART frame consists of:
 - **Parity bit** → Optional (Even/Odd)
 - **Stop bit** → 1 bit (`High`)
 
-![UART Frame Format](FIG01.jpg)
+![UART Frame Format](IMAGES/FIG01.jpg)
 
 ---
 
 ## 🚀 UART Transmitter
 The **Transmitter** converts parallel input data into a serial bitstream.
 
-![UART Transmitter Block Diagram](FIG02.jpg)
+![UART Transmitter Block Diagram](IMAGES/FIG02.jpg)
 
 ### Modules:
 - **Baud Rate Generator** → Generates transmission clock  
@@ -44,7 +44,7 @@ The **Transmitter** converts parallel input data into a serial bitstream.
 ## 📥 UART Receiver
 The **Receiver** reconstructs parallel data from the incoming serial stream.
 
-![UART Receiver Block Diagram](FIG03.jpg)
+![UART Receiver Block Diagram](IMAGES/FIG03.jpg)
 
 ### Modules:
 - **Baud Rate Generator** → Synchronizes receiver sampling  
@@ -62,7 +62,7 @@ Two UART-enabled devices communicate by cross-connecting **Tx** and **Rx** lines
 - Device 2 **Tx → Rx** of Device 1  
 - Common **Ground (GND)** connection  
 
-![Device-to-Device Connection](FIG04.jpg)
+![Device-to-Device Connection](IMAGES/FIG04.jpg)
 
 ---
 
